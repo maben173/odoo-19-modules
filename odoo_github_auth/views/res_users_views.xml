@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Extended Users Form -->
+        <record id="view_users_form_github" model="ir.ui.view">
+            <field name="name">res.users.form.github</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="arch" type="xml">
+                <page name="access_rights" position="after">
+                    <page name="github_account" string="GitHub Account">
+                        <group>
+                            <group>
+                                <field name="github_login" readonly="1" />
+                                <field name="github_id" readonly="1" />
+                                <field name="github_email" readonly="1" />
+                            </group>
+                            <group>
+                                <field name="github_avatar_url" readonly="1" />
+                                <field name="github_profile_url" readonly="1" widget="url" />
+                                <field name="github_sync_date" readonly="1" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="github_company" readonly="1" />
+                            <field name="github_location" readonly="1" />
+                        </group>
+                        <field name="github_bio" readonly="1" />
+                    </page>
+                </page>
+            </field>
+        </record>
+    </data>
+</odoo>
