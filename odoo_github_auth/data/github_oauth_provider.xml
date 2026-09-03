@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- GitHub OAuth Provider Data -->
+        <record id="github_oauth_provider_default" model="github.oauth.provider">
+            <field name="name">GitHub</field>
+            <field name="client_id">YOUR_GITHUB_CLIENT_ID</field>
+            <field name="client_secret">YOUR_GITHUB_CLIENT_SECRET</field>
+            <field name="scope">user:email read:org read:user</field>
+            <field name="is_active">False</field>
+        </record>
+    </data>
+</odoo>
