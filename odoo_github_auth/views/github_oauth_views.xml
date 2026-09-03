@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- GitHub OAuth Provider Form -->
+        <record id="github_oauth_provider_form" model="ir.ui.view">
+            <field name="name">github.oauth.provider.form</field>
+            <field name="model">github.oauth.provider</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="client_id" />
+                                <field name="client_secret" password="True" />
+                            </group>
+                            <group>
+                                <field name="redirect_uri" readonly="1" />
+                                <field name="scope" />
+                                <field name="is_active" />
+                            </group>
+                        </group>
+                        <group string="API URLs">
+                            <field name="authorize_url" />
+                            <field name="token_url" />
+                            <field name="userinfo_url" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- GitHub OAuth Provider Tree -->
+        <record id="github_oauth_provider_tree" model="ir.ui.view">
+            <field name="name">github.oauth.provider.tree</field>
+            <field name="model">github.oauth.provider</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="client_id" />
+                    <field name="is_active" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- GitHub OAuth Provider Action -->
+        <record id="action_github_oauth_provider" model="ir.actions.act_window">
+            <field name="name">GitHub OAuth Providers</field>
+            <field name="res_model">github.oauth.provider</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem
+            id="menu_github_oauth"
+            name="GitHub Auth"
+            parent="base.menu_administration"
+            action="action_github_oauth_provider"
+            sequence="50"
+        />
+    </data>
+</odoo>
